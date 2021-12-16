@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "test"
+echo "test pr"
 echo "hello from start.sh bash file"
 echo "wwww"
 
