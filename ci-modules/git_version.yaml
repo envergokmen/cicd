@@ -1,0 +1,23 @@
+git_version:
+    stage: version
+    before_script: 
+        - sudo apt-get install -y jq
+        - echo $CI_PROJECT_DIR
+        - export PATH="$PATH:/root/.dotnet/tools"
+        - dotnet tool install --global GitVersion.Tool --version 5.8.1 || true
+    script: |
+        dotnet gitversion
+        VER=$(dotnet gitversion)
+        echo $VER
+        mkdir artifact
+        echo $VER >> version.json
+        LOCAL_VER=$(cat version.json | jq '.NuGetVersionV2')
+        echo $LOCAL_VER
+        echo 'LOCAL_VER='$LOCAL_VER >> git_version.env
+        cp git_version.env version.json artifact 
+
+    artifacts:
+      paths:
+        - artifact
+      reports:
+        dotenv: git_version.env
