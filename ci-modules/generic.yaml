@@ -1,0 +1,27 @@
+.test_job_template1:
+    variables:
+        PROJECT_NAME: test_job_template1
+    stage: version
+    before_script: 
+        - echo "hello from test job template 1 before_script"
+    script: |
+        echo "hello from test job template 1 script"
+    artifacts:
+      paths:
+        - artifact
+      reports:
+        dotenv: test_job_template.env
+
+.test_job_template2:
+    variables:
+        PROJECT_NAME: test_job_template2
+    stage: version
+    before_script: 
+        - echo "hello from test job template 2 before_script"
+    script: |
+        echo "hello from test job template 2 script"
+    artifacts:
+      paths:
+        - artifact
+      reports:
+        dotenv: test_job_template.env
