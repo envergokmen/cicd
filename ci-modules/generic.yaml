@@ -27,7 +27,7 @@
         dotenv: test_job_template.env
         
         
-.test_job_template3:
+.test_job_template5:
     variables:
         PROJECT_NAME: test_job_template2
     stage: version
