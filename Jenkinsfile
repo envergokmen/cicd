@@ -3,8 +3,15 @@ pipeline {
     stages {
         
           stage('Build ac-server-build-dev') {
+              
+              script{
+                 String fullPathBranch = "${sh(script:'git name-rev --name-only HEAD', returnStdout: true)}"
+                 env.BRANCH_NAME=fullPathBranch.substring(fullPathBranch.lastIndexOf('/') + 1, fullPathBranch.length()).trim()
+              }
+              
                steps {
-                     build job: "/appcircle-backend/ac-server-build", wait: false
+                     sh "printenv"
+                     build job: "/appcircle-backend/ac-server-build/$BRANCH_NAME", wait: false
                 }
           }
                 
