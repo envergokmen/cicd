@@ -11,7 +11,8 @@ pipeline {
                 }
             }
    
-          failFast true
+            failFast true
+        
             parallel {
                 stage('Build ac-server-build-dev') {
                     steps {
