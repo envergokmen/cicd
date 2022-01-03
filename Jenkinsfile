@@ -2,7 +2,6 @@ pipeline {
     agent { label 'agent'}
     
     stages {
-          
         
             stage('Set Default Env')
             {
