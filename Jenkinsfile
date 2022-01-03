@@ -1,6 +1,5 @@
 pipeline {
     agent { label 'agent'}
-    
     stages {
         
           stage('Build ac-server-build-dev') {
