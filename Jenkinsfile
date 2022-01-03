@@ -5,7 +5,7 @@ pipeline {
         
           stage('Build ac-server-build-dev') {
                steps {
-                     build job: "/appcircle-backend/ac-server-build", wait: true
+                     build job: "/appcircle-backend/ac-server-build", wait: false
                 }
           }
                 
