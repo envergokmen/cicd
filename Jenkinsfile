@@ -9,7 +9,7 @@ pipeline {
                    }
                     //build job: "/appcircle-backend/ac-server-build", wait: false
                    
-                   build job: '/appcircle-backend/ac-server-build', wait: false, parameters:[
+                   build job: '/appcircle-backend/ac-server-build/develop', wait: false, parameters:[
                         booleanParam(name: 'WORKFLOW_TRIGGERED',value: true )
                    ]
                 }
